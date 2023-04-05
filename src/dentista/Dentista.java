@@ -1,21 +1,25 @@
 
 package dentista;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  * Universidad Politécnica de San Luis Potosí
  * @author 174074
  * Pedro Antonio Saldívar Juárez 174074
- * Programación III Grupo 7-8
+ * 
  */
 public class Dentista {
 
     public static void main(String[] args) {
-        //Hola mundo
-        /*a
-        Pedro Antonio Saldívar Juárez
-        Hola
-        Hola
-        */
+        Conexion obj = new Conexion();
+        Connection con = obj.Conexion("MySQL");
+        try{
+            new LogIn(con).setVisible(true);        
+        }catch(SQLException e){
+            System.out.println(e);
+        }
     }
 
 }
